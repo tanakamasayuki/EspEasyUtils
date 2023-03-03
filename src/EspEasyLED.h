@@ -110,7 +110,7 @@ public:
 
   void clear() {
     for (int i = 0; i < _ledNum; i++) {
-      _led[i] = BLACK;
+      _led[i] = { 0, 0, 0 };
     }
     show();
   };

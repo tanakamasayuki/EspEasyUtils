@@ -130,7 +130,7 @@ void loop() {
 }
 ```
 
-### EspEasyGPIOInterrupt
+## EspEasyGPIOInterrupt
 
 ```c
 #include "EspEasyGPIOInterrupt.h"
@@ -161,7 +161,7 @@ void loop() {
 }
 ```
 
-### EspEasyLED
+## EspEasyLED
 
 ```c
 #include "EspEasyLED.h"
@@ -195,7 +195,7 @@ void loop() {
   led.showColor(EspEasyLED::WHITE);
   delay(1000);
 
-  // fade out 100(MIN) to 0(MIN)
+  // fade out 100(MAX) to 0(MIN)
   for (int i = 100; 0 <= i; i--) {
     led.setBrightness(i);
     led.show();
