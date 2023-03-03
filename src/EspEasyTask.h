@@ -1,6 +1,12 @@
 #ifndef __EspEasyTask_H__
 #define __EspEasyTask_H__
 
+#ifndef CONFIG_FREERTOS_UNICORE
+#define ESP_EASY_TASK_CPU_NUM APP_CPU_NUM
+#else
+#define ESP_EASY_TASK_CPU_NUM PRO_CPU_NUM
+#endif
+
 class EspEasyTask {
 public:
   EspEasyTask() {
@@ -17,11 +23,7 @@ public:
   void (*pTask)();
   TaskHandle_t _taskHandle;
 
-#ifndef CONFIG_FREERTOS_UNICORE
-  void begin(void (*task)(), UBaseType_t uxPriority = 2, BaseType_t xCoreID = APP_CPU_NUM) {
-#else
-  void begin(void (*task)(), UBaseType_t uxPriority = 2, BaseType_t xCoreID = PRO_CPU_NUM) {
-#endif
+  void begin(void (*task)(), UBaseType_t uxPriority = 2, BaseType_t xCoreID = ESP_EASY_TASK_CPU_NUM) {
     if (_taskHandle != NULL) {
       vTaskDelete(_taskHandle);
     }

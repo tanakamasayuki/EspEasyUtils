@@ -7,6 +7,12 @@ void IRAM_ATTR _EspEasyTimerOnTimer1();
 void IRAM_ATTR _EspEasyTimerOnTimer2();
 void IRAM_ATTR _EspEasyTimerOnTimer3();
 
+#ifndef CONFIG_FREERTOS_UNICORE
+#define ESP_EASY_TIMER_CPU_NUM APP_CPU_NUM
+#else
+#define ESP_EASY_TIMER_CPU_NUM PRO_CPU_NUM
+#endif
+
 class EspEasyTimer {
 public:
   static uint8_t _lastTimerId;
@@ -15,11 +21,7 @@ public:
   void (*_timerTask)();
   TaskHandle_t _taskHandle;
 
-#ifdef CONFIG_FREERTOS_UNICORE
-  EspEasyTimer(BaseType_t xCoreID = APP_CPU_NUM) {
-#else
-  EspEasyTimer(BaseType_t xCoreID = PRO_CPU_NUM) {
-#endif
+  EspEasyTimer(BaseType_t xCoreID = ESP_EASY_TIMER_CPU_NUM) {
     _timerId = _lastTimerId;
     _lastTimerId++;
 

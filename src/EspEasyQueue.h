@@ -13,6 +13,10 @@ public:
     return xQueueSend(_queue, data, xTicksToWait);
   };
 
+  bool sendFromISR(void *data) {
+    return xQueueSendFromISR(_queue, data, 0);
+  };
+
   bool receiveWait(void *data, TickType_t xTicksToWait = portMAX_DELAY) {
     return xQueueReceive(_queue, data, xTicksToWait);
   };
