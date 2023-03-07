@@ -18,15 +18,15 @@ void loop() {
   delay(1000);
 
   // All GREEN
-  led.showColor(EspEasyLED::GREEN);
+  led.showColor(EspEasyLEDColor::GREEN);
   delay(1000);
 
   // All BLUE
-  led.showColor(EspEasyLED::BLUE);
+  led.showColor(EspEasyLEDColor::BLUE);
   delay(1000);
 
   // All WHITE
-  led.showColor(EspEasyLED::WHITE);
+  led.showColor(EspEasyLEDColor::WHITE);
   delay(1000);
 
   // fade out 100(MAX) to 0(MIN)
@@ -45,7 +45,7 @@ void loop() {
 
   // Num access
   for (int i = 0; i < led.getLedNum(); i++) {
-    led.setColor(i, EspEasyLED::BLACK);
+    led.setColor(i, EspEasyLEDColor::BLACK);
     led.show();
     delay(50);
   }

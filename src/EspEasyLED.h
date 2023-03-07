@@ -11,33 +11,6 @@ public:
     uint8_t B;
   } __attribute__((packed));
 
-  static color_t BLACK;
-  static color_t NAVY;
-  static color_t DARKGREEN;
-  static color_t DARKCYAN;
-  static color_t MAROON;
-  static color_t PURPLE;
-  static color_t OLIVE;
-  static color_t LIGHTGREY;
-  static color_t LIGHTGRAY;
-  static color_t DARKGREY;
-  static color_t DARKGRAY;
-  static color_t BLUE;
-  static color_t GREEN;
-  static color_t CYAN;
-  static color_t RED;
-  static color_t MAGENTA;
-  static color_t YELLOW;
-  static color_t WHITE;
-  static color_t ORANGE;
-  static color_t GREENYELLOW;
-  static color_t PINK;
-  static color_t BROWN;
-  static color_t GOLD;
-  static color_t SILVER;
-  static color_t SKYBLUE;
-  static color_t VIOLET;
-
   gpio_num_t _gpio;
   uint16_t _ledNum;
   uint8_t _maxBrightness;
@@ -114,6 +87,35 @@ public:
     }
     show();
   };
+};
+
+namespace EspEasyLEDColor {
+const EspEasyLED::color_t BLACK = { 0, 0, 0 };
+const EspEasyLED::color_t NAVY = { 0, 0, 128 };
+const EspEasyLED::color_t DARKGREEN = { 0, 128, 0 };
+const EspEasyLED::color_t DARKCYAN = { 0, 128, 128 };
+const EspEasyLED::color_t MAROON = { 128, 0, 0 };
+const EspEasyLED::color_t PURPLE = { 128, 0, 128 };
+const EspEasyLED::color_t OLIVE = { 128, 128, 0 };
+const EspEasyLED::color_t LIGHTGREY = { 211, 211, 211 };
+const EspEasyLED::color_t LIGHTGRAY = { 211, 211, 211 };
+const EspEasyLED::color_t DARKGREY = { 128, 128, 128 };
+const EspEasyLED::color_t DARKGRAY = { 128, 128, 128 };
+const EspEasyLED::color_t BLUE = { 0, 0, 255 };
+const EspEasyLED::color_t GREEN = { 0, 255, 0 };
+const EspEasyLED::color_t CYAN = { 0, 255, 255 };
+const EspEasyLED::color_t RED = { 255, 0, 0 };
+const EspEasyLED::color_t MAGENTA = { 255, 0, 255 };
+const EspEasyLED::color_t YELLOW = { 255, 255, 0 };
+const EspEasyLED::color_t WHITE = { 255, 255, 255 };
+const EspEasyLED::color_t ORANGE = { 255, 180, 0 };
+const EspEasyLED::color_t GREENYELLOW = { 180, 255, 0 };
+const EspEasyLED::color_t PINK = { 255, 192, 203 };
+const EspEasyLED::color_t BROWN = { 150, 75, 0 };
+const EspEasyLED::color_t GOLD = { 255, 215, 0 };
+const EspEasyLED::color_t SILVER = { 192, 192, 192 };
+const EspEasyLED::color_t SKYBLUE = { 135, 206, 235 };
+const EspEasyLED::color_t VIOLET = { 180, 46, 226 };
 };
 
 #endif
