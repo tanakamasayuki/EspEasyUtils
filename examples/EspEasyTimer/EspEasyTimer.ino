@@ -11,9 +11,9 @@ void timer3Task() {
 }
 
 // Max Timer ESP32=4, ESP32-S3=4, ESP32-C2=1, ESP32-C3=2, ESP32-C6=2 
-EspEasyTimer timer1;               // Dual core=APP_CPU_NUM(core1), Single Core=PRO_CPU_NUM(core0)
-EspEasyTimer timer2(APP_CPU_NUM);  // APP_CPU_NUM(core1)
-EspEasyTimer timer3(PRO_CPU_NUM);  // PRO_CPU_NUM(core0)
+EspEasyTimer timer1(TIMER_GROUP_0, TIMER_0);              // Dual core=APP_CPU_NUM(core1), Single Core=PRO_CPU_NUM(core0)
+EspEasyTimer timer2(TIMER_GROUP_0, TIMER_1, APP_CPU_NUM); // APP_CPU_NUM(core1)
+EspEasyTimer timer3(TIMER_GROUP_1, TIMER_0, PRO_CPU_NUM); // PRO_CPU_NUM(core0)
 
 void setup() {
   Serial.begin(115200);
@@ -29,4 +29,5 @@ void setup() {
 }
 
 void loop() {
+  delay(1);
 }
