@@ -38,7 +38,7 @@ public:
 
     _position = initPosition;
     _target = initPosition;
-    ledcWrite(_ledc, (_max - _min) * initPosition / 180);
+    ledcWrite(_ledc, _min + ((_max - _min) * initPosition / 180));
 
     xTaskCreateUniversal(
       _task,
@@ -74,7 +74,7 @@ public:
             newPosition = _target;
           }
         }
-        ledcWrite(_ledc, (_max - _min) * newPosition / 180);
+        ledcWrite(_ledc, _min + ((_max - _min) * newPosition / 180));
         _position = newPosition;
       }
       delay(10);
@@ -90,14 +90,22 @@ public:
     }
 
     _target = degree;
-  }
+  };
 
   void setSpeed(uint8_t speed) {
     if (speed != 0) {
       _speed = speed;
       _d = 2.0 * _speed / 100;
     }
-  }
+  };
+
+  uint8_t getPosition() {
+    return (uint8_t)_position;
+  };
+
+  uint8_t getTarget() {
+    return (uint8_t)_target;
+  };
 };
 
 #endif

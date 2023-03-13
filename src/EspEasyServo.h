@@ -29,7 +29,7 @@ public:
     if (180 < degree) {
       degree = 90;
     }
-    ledcWrite(_ledc, (_max - _min) * degree / 180);
+    ledcWrite(_ledc, _min + ((_max - _min) * degree / 180));
   }
 };
 

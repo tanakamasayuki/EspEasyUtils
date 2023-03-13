@@ -64,12 +64,12 @@ public:
 
   static void ARDUINO_ISR_ATTR _pcntIntr(void *arg) {
     EspEasyPulseCounter *pcnt = (EspEasyPulseCounter *)arg;
+    PCNT.int_clr.val = BIT(pcnt->_unit);
     if (PCNT.status_unit[pcnt->_unit].h_lim_lat) {
       pcnt->_counter++;
     } else if (PCNT.status_unit[pcnt->_unit].l_lim_lat) {
       pcnt->_counter--;
     }
-    PCNT.int_clr.val = BIT(pcnt->_unit);
   };
 
   int16_t getIntrValue() {

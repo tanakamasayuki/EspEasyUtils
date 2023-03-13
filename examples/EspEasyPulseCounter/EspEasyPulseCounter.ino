@@ -1,9 +1,9 @@
 #include "EspEasyPulseCounter.h"
 
-const uint8_t inputPin = 0;
+const uint8_t inputPin = 26;
 const uint8_t roundCount = 80;  // Number of counts per round
 
-EspEasyPulseCounter pcnt(PCNT_UNIT_0, GPIO_NUM_32, GPIO_NUM_33, roundCount);
+EspEasyPulseCounter pcnt(PCNT_UNIT_0, GPIO_NUM_0, GPIO_NUM_36, roundCount);
 
 void setup() {
   Serial.begin(115200);
